@@ -4,54 +4,62 @@ const projects = [
   {
     title: "MindCare",
     desc: "Mental Health Wellness Web App with mood tracking, journaling and meditation features.",
-    tech: ["React", "springboot", "MySQL", "Tailwind"],
-    github: "#",
-    live: "#",
+    tech: ["React", "Spring Boot", "MySQL", "Tailwind"],
+    github: "https://github.com/patil-komal",
   },
   {
     title: "WearWell",
-    desc: "Real-time Ecommers website where you can easily buy a clothes and watches and footwear etc .",
-    tech: ["php", "mysql", "tailwind css"],
+    desc: "E-commerce website for clothes, watches and footwear with smooth shopping experience.",
+    tech: ["PHP", "MySQL", "Tailwind CSS"],
     github: "https://github.com/patil-komal/WearWell",
-    live: "#",
   },
   {
     title: "Day Dream Cafe",
-    desc: "cafe website where you can order food make payment and easy to aceess",
-    tech: ["JavaScript", "reactjs","bootstrape css", "node.js"],
-    github: "#",
-    live: "#",
+    desc: "Cafe website where users can order food, make payments and explore menu easily.",
+    tech: ["JavaScript", "React", "Bootstrap", "Node.js"],
+    github: "https://github.com/patil-komal",
   },
 ];
 
 const Projects = () => {
   return (
-    <section id="projects" className="py-28 bg-slate-900">
-      <div className="max-w-7xl mx-auto px-6">
+    <section id="projects" className="py-20 sm:py-24 lg:py-28 bg-slate-900">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Heading */}
         <motion.h2
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          className="text-4xl font-bold text-center mb-16"
+          transition={{ duration: 0.6 }}
+          className="text-3xl sm:text-4xl font-bold text-center mb-12 sm:mb-16"
         >
           My Projects
         </motion.h2>
 
         {/* Grid */}
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
 
           {projects.map((project, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: index * 0.1 }}
-              className="bg-slate-950 border border-white/10 rounded-2xl p-6 hover:scale-105 transition"
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              className="
+                group
+                bg-slate-950/70
+                border border-white/10
+                rounded-2xl
+                p-5 sm:p-6
+                shadow-lg
+                hover:-translate-y-2
+                hover:border-violet-500/40
+                transition-all duration-300
+              "
             >
 
-              {/* Project Title */}
-              <h3 className="text-xl font-bold text-violet-400">
+              {/* Title */}
+              <h3 className="text-lg sm:text-xl font-bold text-violet-400 group-hover:text-violet-300">
                 {project.title}
               </h3>
 
@@ -65,7 +73,16 @@ const Projects = () => {
                 {project.tech.map((t, i) => (
                   <span
                     key={i}
-                    className="text-xs bg-slate-800 px-3 py-1 rounded-full"
+                    className="
+                      text-xs
+                      px-3 py-1
+                      rounded-full
+                      bg-slate-800
+                      border border-white/10
+                      text-gray-300
+                      hover:bg-violet-600
+                      transition
+                    "
                   >
                     {t}
                   </span>
@@ -73,20 +90,28 @@ const Projects = () => {
               </div>
 
               {/* Buttons */}
-              <div className="flex gap-3 mt-6">
-                <a
-                  href={project.live}
-                  className="px-4 py-2 text-sm bg-violet-600 rounded-lg hover:bg-violet-700 transition"
-                >
-                  Live Demo
-                </a>
+              <div className="mt-6 flex flex-col sm:flex-row gap-3">
 
                 <a
                   href={project.github}
-                  className="px-4 py-2 text-sm border border-cyan-400 rounded-lg hover:bg-cyan-400 hover:text-black transition"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="
+                    w-full sm:w-auto
+                    text-center
+                    px-4 py-2
+                    text-sm
+                    rounded-lg
+                    border border-cyan-400
+                    text-cyan-300
+                    hover:bg-cyan-400
+                    hover:text-black
+                    transition
+                  "
                 >
                   GitHub
                 </a>
+
               </div>
 
             </motion.div>
